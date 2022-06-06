@@ -1,0 +1,10 @@
+.post-data .all-inputs{
+    width: 500px !important;
+}
+
+.post-data .parent-all-inputs{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

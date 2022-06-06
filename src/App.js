@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Datapost from './components/Datapost';
+import ViewData from './components/ViewData';
+import Singel from './components/Singel';
+
+
+
+
+
+import {HashRouter,Routes,Route} from "react-router-dom"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <>
+
+      <HashRouter>
+        <Routes>
+          <Route  path="/" element={ <Datapost />} />
+
+          <Route path="/viewdata" element={<ViewData/>}/>
+          <Route path="/singleser/:id" element={<Singel/>}/>
+          <Route  path="*" element={<h1>Page Not Found</h1>} />
+        </Routes>
+      </HashRouter>
+     
+    </>
+
+
+
   );
 }
 
