@@ -11,13 +11,9 @@ function Datapost() {
     const [status, setStatus] = useState("active");
     const [gender, setGender] = useState("")
 
+    const [serverResponse, setResponse] = useState() //message
 
-
-
-
-    const [serverResponse, setResponse] = useState()
-
-    const [dataWait, setDatawait] = useState(false)
+    const [dataWait, setDatawait] = useState(false) // waiting for data
 
 
 
@@ -30,7 +26,7 @@ function Datapost() {
         const userData = { name: username, email: useremail, status: status, gender: gender }
         console.log(userData)
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer 9248f140d299d0e6c562fb43599cd1d7e9ae926fa289f38ee8365a790829fd3f");
+        myHeaders.append("Authorization", "Bearer 23f8bb88f24cc1825695900b4f8bfa127cf20694a150c632ed5d620aa47a4ad8");
         myHeaders.append("Content-Type", "application/json");
         try {
 
@@ -66,16 +62,6 @@ function Datapost() {
 
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
     return (

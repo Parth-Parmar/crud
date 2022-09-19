@@ -9,8 +9,9 @@ function ViewData() {
 
     async function fetchdata() {
         setLoading(true)
+
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer 9248f140d299d0e6c562fb43599cd1d7e9ae926fa289f38ee8365a790829fd3f");
+        myHeaders.append("Authorization", "Bearer 23f8bb88f24cc1825695900b4f8bfa127cf20694a150c632ed5d620aa47a4ad8");
 
         const response = await fetch("https://gorest.co.in/public/v2/users", {
             headers: myHeaders
@@ -30,7 +31,7 @@ function ViewData() {
     async function Removedata(no) {
 
         var myHeaders = new Headers()
-        myHeaders.append("Authorization", "Bearer 9248f140d299d0e6c562fb43599cd1d7e9ae926fa289f38ee8365a790829fd3f");
+        myHeaders.append("Authorization", "Bearer 23f8bb88f24cc1825695900b4f8bfa127cf20694a150c632ed5d620aa47a4ad8");
         try {
             fetch(`https://gorest.co.in/public/v2/users/${no}`, {
                 method: "delete",
@@ -46,6 +47,9 @@ function ViewData() {
     }
 
 
+
+   
+
     return (
         <div className='show-data'>
             <div className='row'>
@@ -55,9 +59,12 @@ function ViewData() {
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>email</th>
-                                <th>gender</th>
-                                <th>status</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+                                <th>View Info</th>
+                                <th>Edit User</th>
+                                <th>Delete User</th>
 
                             </tr>
                         </thead>
@@ -77,10 +84,11 @@ function ViewData() {
                                             <td>{value.status}</td>
 
 
+
                                             <td><Link to={`/singleser/${value.id}`}>View info</Link></td>
-                                            <td><button className='btn btn-danger' onClick={() => {
-                                                Removedata(value.id)
-                                            }}>Delete</button></td>
+                                            <td><Link to={`/updteuser/${value.id}`}>Edit</Link></td>
+                                            {/* <td><button className='btn btn-success' onClick={() => { Editdata(value.id) }}>Edit</button></td> */}
+                                            <td><button className='btn btn-danger' onClick={() => { Removedata(value.id) }}>Delete</button></td>
 
 
                                         </tr>)
